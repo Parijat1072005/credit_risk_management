@@ -1,5 +1,53 @@
-__pycache__/
+# --- Datasets & Data Archives (CRITICAL) ---
+*.csv
+*.xlsx
+*.json
+*.zip
+*.tar.gz
+*.tgz
+data/
+datasets/
+input/
+output/
+
+# --- Model Artifacts ---
 *.pkl
-.vscode/
-.DS_Store
+*.h5
+*.joblib
+*.model
+*.pt
+*.pth
+model/
+
+# --- Python & Virtual Environments ---
+__pycache__/
+*.py[cod]
+*$py.class
 venv/
+env/
+.env
+.venv
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Jupyter Notebooks ---
+# You generally want to commit .ipynb, but ignore checkpoints
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# --- IDE & Editor Settings ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Logs & OS Files ---
+*.log
+.DS_Store
+Thumbs.db
+
+# --- Flask Instance Folder ---
+instance/
+.webassets-cache
