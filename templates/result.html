@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Assessment Result</h1>
+        
+        {% if prediction == 1 %}
+            <div class="result-box risk">
+                <h2>⚠️ HIGH RISK DETECTED</h2>
+                <p>The model predicts this customer will default next month.</p>
+                <p><strong>Default Probability: {{ probability }}%</strong></p>
+                <p><em>(Threshold used: 0.32)</em></p>
+            </div>
+        {% else %}
+            <div class="result-box safe">
+                <h2>✅ LOW RISK</h2>
+                <p>The model predicts this customer is safe to approve.</p>
+                <p><strong>Default Probability: {{ probability }}%</strong></p>
+            </div>
+        {% endif %}
+
+        <a href="/"><button style="background-color: #555;">Check Another Customer</button></a>
+    </div>
+</body>
+</html>

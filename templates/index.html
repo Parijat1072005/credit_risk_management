@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Risk Assessment</h1>
+        <form action="/predict" method="POST">
+            
+            <h3>Demographics</h3>
+            <div class="form-group">
+                <label>Limit Balance (LIMIT_BAL)</label>
+                <input type="number" name="LIMIT_BAL" required placeholder="e.g. 50000">
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" required placeholder="e.g. 35">
+            </div>
+            <div class="form-group">
+                <label>Marriage Status</label>
+                <select name="marriage">
+                    <option value="1">Married</option>
+                    <option value="2">Single</option>
+                    <option value="3">Others</option>
+                </select>
+            </div>
+
+            <h3>Repayment Status (Last 6 Months)</h3>
+            <p><small>-1=Pay Duly, 1=Delay 1m, 2=Delay 2m...</small></p>
+            <div class="form-group"><label>Pay Status Sept (pay_0)</label><input type="number" name="pay_0" value="0"></div>
+            <div class="form-group"><label>Pay Status Aug (pay_2)</label><input type="number" name="pay_2" value="0"></div>
+            <div class="form-group"><label>Pay Status Jul (pay_3)</label><input type="number" name="pay_3" value="0"></div>
+            <div class="form-group"><label>Pay Status Jun (pay_4)</label><input type="number" name="pay_4" value="0"></div>
+            <div class="form-group"><label>Pay Status May (pay_5)</label><input type="number" name="pay_5" value="0"></div>
+            <div class="form-group"><label>Pay Status Apr (pay_6)</label><input type="number" name="pay_6" value="0"></div>
+
+            <h3>Financials (Needed for Ratios)</h3>
+            <div class="form-group"><label>Bill Amount Sept (Bill_amt1)</label><input type="number" name="Bill_amt1" value="0"></div>
+            <div class="form-group"><label>Bill Amount Aug (Bill_amt2)</label><input type="number" name="Bill_amt2" value="0"></div>
+            <input type="hidden" name="Bill_amt3" value="0"><input type="hidden" name="Bill_amt4" value="0">
+            <input type="hidden" name="Bill_amt5" value="0"><input type="hidden" name="Bill_amt6" value="0">
+
+            <div class="form-group"><label>Pay Amount Sept (pay_amt1)</label><input type="number" name="pay_amt1" value="0"></div>
+            <div class="form-group"><label>Pay Amount Aug (pay_amt2)</label><input type="number" name="pay_amt2" value="0"></div>
+            <div class="form-group"><label>Pay Amount Apr (pay_amt6)</label><input type="number" name="pay_amt6" value="0"></div>
+            <input type="hidden" name="pay_amt3" value="0"><input type="hidden" name="pay_amt4" value="0">
+            <input type="hidden" name="pay_amt5" value="0">
+
+            <button type="submit">Predict Risk</button>
+        </form>
+    </div>
+</body>
+</html>

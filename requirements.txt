@@ -1,6 +1,20 @@
-Flask==3.0.0
+# --- Web Application (Flask) ---
+Flask
+joblib
+
+# --- Data Manipulation & Math ---
 pandas
 numpy
+
+# --- Machine Learning Models ---
 scikit-learn
 lightgbm
-joblib
+xgboost
+
+# --- Data Preprocessing (SMOTE) ---
+imbalanced-learn
+
+# --- Visualization (For Notebook) ---
+seaborn
+matplotlib
+
